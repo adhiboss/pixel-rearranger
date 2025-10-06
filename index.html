@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Rearranger</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen p-4 sm:p-8 font-sans">
+
+    <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-extrabold text-indigo-400 mb-2">Image Pixel Rearranger</h1>
+            <p class="text-gray-400">Upload two images: the *Structure* (A) and the *Color Source* (B).</p>
+        </header>
+
+        <!-- Image Upload Inputs -->
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg mb-8 grid md:grid-cols-2 gap-6">
+            <div>
+                <label for="sourceImageUpload" class="block text-lg font-medium text-gray-300 mb-3">
+                    1. Upload *Structure Image* (Image A: Provides Pixel Locations)
+                </label>
+                <input type="file" id="sourceImageUpload" accept="image/*" class="upload-input w-full text-sm text-gray-400
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-full file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-indigo-500 file:text-white
+                    hover:file:bg-indigo-600 cursor-pointer
+                ">
+            </div>
+
+            <div>
+                <label for="mapImageUpload" class="block text-lg font-medium text-gray-300 mb-3">
+                    2. Upload *Color Source Image* (Image B: Provides Pixels/Colors)
+                </label>
+                <input type="file" id="mapImageUpload" accept="image/*" class="upload-input w-full text-sm text-gray-400
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-full file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-purple-500 file:text-white
+                    hover:file:bg-purple-600 cursor-pointer
+                ">
+            </div>
+        </div>
+
+        <!-- Canvas Display Area -->
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-800 p-4 rounded-xl shadow-lg">
+                <h2 class="text-xl font-semibold mb-3 text-center text-indigo-400">Structure (A)</h2>
+                <div class="canvas-container">
+                    <canvas id="sourceCanvas" class="canvas-preview border-2 border-indigo-500"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 p-4 rounded-xl shadow-lg">
+                <h2 class="text-xl font-semibold mb-3 text-center text-purple-400">Color Source (B)</h2>
+                <div class="canvas-container">
+                    <canvas id="mapCanvas" class="canvas-preview border-2 border-purple-500"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 p-4 rounded-xl shadow-lg">
+                <h2 class="text-xl font-extrabold mb-3 text-center text-green-400">3. Rearranged Result</h2>
+                <div class="canvas-container">
+                    <canvas id="resultCanvas" class="canvas-preview border-2 border-green-500"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
